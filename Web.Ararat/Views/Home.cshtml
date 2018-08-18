@@ -1,0 +1,88 @@
+@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = "Master.cshtml";
+
+    var home = CurrentPage.Site();
+
+    var contentImages = home.ContentImages.Split(',');
+}
+
+
+
+<section class="row">
+    <div data-shared-size-group="panel" data-shared-size="height" class="col-md-7 panel">
+        <h1>@CurrentPage.Name</h1>
+        <p>
+            @CurrentPage.Content
+        </p>
+
+        @foreach (var img in Umbraco.Media(contentImages))
+        {
+            <div class="img-holder hidden-xs">
+                <img src="@img.Url?width=300">
+                <h4>@img.Description</h4>
+            </div>
+        }
+    </div>
+    <div data-shared-size-group="panel" data-shared-size="height" class="col-md-3 panel popular-aside hidden-xs">
+        <h1>@CurrentPage.PropositionTitle</h1>
+        @Html.Partial("PropositionSlider")
+        <p>
+            @CurrentPage.PropositionText
+        </p>
+    </div>
+</section>
+
+@{
+    var visibleBlogPosts = CurrentPage.Site().FirstChild("BlogPostRepository").Children("BlogPost").Where("Visible && ShowOnHomePage == @0", true);
+}
+
+
+@if (visibleBlogPosts != null && visibleBlogPosts.Any())
+{
+    <section>
+        <div class="panel row">
+            <h1>@visibleBlogPosts.First().Parent.Name</h1>
+
+            @foreach (var post in visibleBlogPosts)
+            {
+                <div class="col-sm-12">
+                    <div class="content equal">
+                        <a href="@post.Url" class="article-link">
+                            <h2 class="article-title pull-left">
+                                @post.Name
+                            </h2>
+                            <span class="article-date pull-right">@post.CreateDate.ToShortDateString()</span>
+                            <div class="clearfix"></div>
+                            <hr />
+                        </a>
+                        <p>@Umbraco.Truncate(post.Introduction, 240, true)</p>
+                    </div>
+                </div>
+            }
+        </div>
+    </section>
+}
+
+
+@{
+    var categories = CurrentPage.Site().FirstChild("MenuRepository").Children("MenuCategory").Where("Visible && ShowOnHomePage == @0", true);
+
+    foreach (var child in categories)
+    {
+        ViewBag.CurrentCategory = child;
+
+        if (child.ImageOption == "Left" && child.Image != null)
+        {
+            @Html.Partial("LeftMenuCategory")
+        }
+        else if (child.ImageOption == "Right" && child.Image != null)
+        {
+            @Html.Partial("RightMenuCategory")
+        }
+        else
+        {
+            @Html.Partial("NoImageMenuCategory")
+        }
+    }
+}

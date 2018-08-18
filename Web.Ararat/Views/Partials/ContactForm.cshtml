@@ -1,0 +1,58 @@
+@using Web.Ararat.Controllers
+@model Web.Ararat.Model.ContactModel
+
+@{
+    var contactResult = TempData["ContactResult"];
+}
+
+@if (contactResult != null && contactResult != "True")
+{
+    <div class="text-success">
+        @ViewBag.SuccessMessage
+    </div>
+}
+else if (contactResult != null)
+{
+    <div class="text-error">
+        @ViewBag.ErrorMessage
+    </div>
+}
+
+@using (Html.BeginUmbracoForm<ContactSurfaceController>("Send", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+
+    @Html.HiddenFor(x => x.SendTo)
+    
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class="form-group">
+        <label class="col-md-2 control-label">@ViewBag.MessageTitleLabel</label>
+        <div class="col-md-10">
+            @Html.TextBoxFor(x => x.Title, new {@class = "form-control"})
+            @Html.ValidationMessageFor(m => m.Title, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-md-2 control-label">@ViewBag.messageEmailFromLabel</label>
+        <div class="col-md-10">
+            @Html.TextBoxFor(x => x.EmailFrom, new {@class = "form-control"})
+            @Html.ValidationMessageFor(m => m.EmailFrom, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-md-2 control-label">@ViewBag.Messagebodylabel</label>
+        <div class="col-md-10">
+            @Html.TextAreaFor(x => x.Message, new {@class = "form-control"})
+            @Html.ValidationMessageFor(m => m.Message, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <div class="col-md-12 text-right">
+            <input type="submit" class="button" value="@ViewBag.SendButtonLabel" />
+        </div>
+    </div>
+}

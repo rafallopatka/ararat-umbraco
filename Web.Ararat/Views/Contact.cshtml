@@ -1,0 +1,63 @@
+﻿@using umbraco.cms.presentation.create.controls
+@using Web.Ararat.Model
+@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = "Master.cshtml";
+}
+
+<section>
+    <div class="panel row text-center">
+        <h1>@CurrentPage.Name</h1>
+
+        <div class="col-md-6">
+            <h2> @CurrentPage.Site().SiteTitle</h2>
+            <br />
+            <span class="contact-phone">
+                @CurrentPage.Phone1
+                <br />
+                @CurrentPage.Phone2
+            </span>
+            <br />
+            <br />
+            <address class="social">
+                <a class="image-link" href="@CurrentPage.Facebook" style="margin: 10px">
+                    <img src="/img/fb.png" />
+                </a>
+                <a class="image-link" href="@CurrentPage.GooglePlus" style="margin: 10px">
+                    <img src="/img/googleplus.png" />
+                </a>
+            </address>
+        </div>
+        <div class="col-md-6">
+            <h2 class="text-italic">@CurrentPage.ContactUsTitle</h2>
+            <br />
+            @{
+                ViewBag.MessageTitleLabel = CurrentPage.MessageTitleLabel;
+                ViewBag.messageEmailFromLabel = CurrentPage.messageEmailFromLabel;
+                ViewBag.Messagebodylabel = CurrentPage.Messagebodylabel;
+                ViewBag.SendButtonLabel = CurrentPage.SendButtonLabel;
+
+                ViewBag.SuccessMessage = CurrentPage.SuccessMessage;
+                ViewBag.ErrorMessage = CurrentPage.ErrorMessage;
+            }
+
+            @Html.Partial("ContactForm", new ContactModel
+            {
+                SendTo = CurrentPage.ContactEmail
+            })
+        </div>
+        <div class="col-md-12">
+            @CurrentPage.AdditionalInfo
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="panel row text-center">
+        <h2 class="text-italic">@CurrentPage.FindUsTitle</h2>
+        <address class="contact-address">
+            @CurrentPage.Address
+        </address>
+        <iframe src="@CurrentPage.GoogleMapUrl" width="1100" height="450" frameborder="0" style="border:0"></iframe>
+    </div>
+</section>

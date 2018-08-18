@@ -1,0 +1,40 @@
+﻿@using umbraco.cms.presentation.create.controls
+@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = "Master.cshtml";
+    var ids = CurrentPage.Images.Split(',');
+}
+
+
+<section class="gallery">
+    <div class="panel row">
+        <h1>@CurrentPage.Name</h1>
+        <br/>
+        @foreach (var img in Umbraco.Media(ids))
+        {
+            <a class="fancybox" rel="group" href="@img.Url?width=1100">
+                <img src="@img.Url?width=363&height=250&mode=crop" class="thumb"/>
+            </a>
+        }
+    </div>
+</section>
+
+
+
+@section userScripts
+    {
+    <script src="~/js/vendor/jquery.mousewheel-3.0.6.pack.js"></script>
+    <script src="~/js/vendor/fancybox/jquery.fancybox.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".fancybox").fancybox();
+        });
+    </script>
+}
+
+
+@section userStyles
+    {
+    <link href="~/js/vendor/fancybox/jquery.fancybox.css" rel="stylesheet" />
+}

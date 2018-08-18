@@ -1,0 +1,18 @@
+@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    var item = ViewBag.CurrentCategory;
+}
+<section>
+    <div class="panel row">
+        <div class="col-md-12">
+            <h1>@item.Name</h1>
+            <dl class="food-menu">
+                @foreach (var child in item.Children)
+                {
+                    ViewBag.CurrentMenuItem = child;
+                    @Html.Partial("MenuItem")
+                }
+            </dl>
+        </div>
+    </div>
+</section>

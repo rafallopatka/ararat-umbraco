@@ -1,0 +1,468 @@
+html,
+body {
+    padding: 0;
+    margin: 0;
+    font-family: TimesNewRoman, 'Times New Roman', Times, Baskerville, Georgia, serif;
+    color: #7B6B4A;
+}
+
+body {
+    background-image: url(../img/footer-bg.jpg);
+    border-top: 13px solid #7B6B4A;
+}
+/* =============================== NAV ======================== */
+
+.centered {
+    float: right;
+    position: relative;
+    left: -50%;
+    text-align: left;
+}
+
+    .centered ul {
+        list-style: none;
+        position: relative;
+        left: 50%;
+    }
+
+    .centered li {
+        float: left;
+        position: relative;
+    }
+
+    .centered a {
+        float: left;
+        text-align: center;
+        white-space: nowrap;
+    }
+
+.site-nav {
+}
+
+    .site-nav hr {
+        margin: 2px;
+    }
+
+    .site-nav .logo-wrapper {
+        margin: 5px;
+    }
+
+    .site-nav .logo-wrapper img {
+        margin-top: -20px;
+        margin-bottom: 0;
+    }
+
+    .site-nav .navbar {
+        background: #7B6B4A;
+        margin-bottom: 0;
+    }
+
+.navbar .menu-title {
+    color: #fff;
+    text-transform: uppercase;
+    margin-top: 15px;
+    display: inline-block;
+    float: left;
+    margin-left: 15px;
+}
+
+.navbar ul {
+    margin: auto;
+}
+
+    .navbar ul li {
+        height: 40px;
+    }
+
+.navbar a {
+    color: #eee;
+    text-transform: uppercase;
+    border-bottom: 1px solid #7B6B4A;
+    margin: 5px;
+    padding: 4px !important;
+    -moz-min-width: 125px;
+    -ms-min-width: 125px;
+    -o-min-width: 125px;
+    -webkit-min-width: 125px;
+    min-width: 125px;
+}
+
+    .navbar a:hover {
+        color: #fff;
+        background-color: transparent !important;
+        border-top: 1px solid #fff;
+        border-bottom: 1px solid #fff;
+    }
+
+.navbar .active {
+    color: #fff;
+    background-color: transparent !important;
+    border-top: 1px solid #fff;
+    border-bottom: 1px solid #fff;
+    background-image: url(../img/active.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+    .navbar .active a:hover {
+        border: 0 transparent solid;
+    }
+
+.navbar .navbar-toggle span {
+    background: #fff !important;
+}
+/* =============================== CONTENT ======================== */
+
+.site-content {
+    background: url(../img/site-bg.jpg);
+    border-top: 1px solid #aaa;
+    border-bottom: 1px solid #aaa;
+    min-height: 500px;
+    padding-top: 10px;
+}
+
+    .site-content section {
+        padding: 5px 15px 0 15px;
+    }
+
+    .site-content .panel {
+        background: #fff;
+        border: 1px solid #eee;
+        padding: 10px 5px 10px 5px;
+    }
+
+        .site-content .panel .col-md-12 {
+            max-width: 1130px;
+        }
+
+        .site-content .panel .col-md-6 {
+            max-width: 48%;
+        }
+
+        .site-content .panel .col-md-8 {
+            max-width: 78%;
+        }
+
+        .site-content .panel .col-md-3 img {
+            max-width: 100%;
+        }
+
+        .site-content .panel h1 {
+            background: url('../img/hat-accent.png') no-repeat;
+            background-position: center top;
+
+            -moz-background-position-x: center;
+            -o-background-position-x: center;
+            background-position-x: center;
+            
+            -moz-min-width: 50px;
+            -ms-min-width: 50px;
+            -o-min-width: 50px;
+            -webkit-min-width: 50px;
+
+
+            min-width: 50px;
+            height: 86px;
+            margin: auto;
+            text-align: center;
+            padding-top: 10px;
+            text-transform: uppercase;
+        }
+
+        .site-content .panel p {
+            font-size: 20px;
+            font-style: italic;
+            margin: 10px;
+        }
+
+        .site-content .panel .img-holder {
+            display: inline-block;
+            margin: 10px;
+        }
+
+.img-holder img {
+    max-width: 300px;
+}
+
+.img-holder h4 {
+    color: #fff;
+    background: #7B6B4A;
+    margin: 0;
+    padding: 5px;
+    text-align: center;
+    font-style: italic;
+}
+
+.site-content .popular-aside {
+    width: 450px !important;
+    margin-left: 25px;
+}
+
+    .site-content .popular-aside h1 {
+        background: url('../img/ring-accent.png') no-repeat;
+        width: 418px;
+        height: 82px;
+    }
+
+#carousel-generic {
+    margin: 2px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+#carousel-food .carousel-caption {
+    background: #7B6B4A;
+    padding: 5px;
+    width: 450px;
+    left: 0;
+    bottom: 0;
+}
+
+.button {
+    color: #eee;
+    background: #7B6B4A;
+    display: inline-block;
+    padding: 10px;
+    text-transform: uppercase;
+}
+
+    .button:hover {
+        color: #fff;
+        background: rgb(139, 124, 93);
+        text-decoration: none;
+    }
+/* =============================== FOOTER ======================== */
+
+.site-footer {
+    border-top: 13px solid #7B6B4A;
+}
+
+    .site-footer .copy-rights {
+        background: #7B6B4A;
+        color: #fff;
+        height: 50px;
+        padding-top: 15px;
+    }
+
+.copy-rights a {
+    color: #eee;
+}
+
+    .copy-rights a:hover {
+        color: #fff;
+    }
+
+footer {
+    min-height: 500px;
+    padding-bottom: 15px;
+}
+
+    footer h1 {
+        text-transform: uppercase;
+        background: url('../img/contact-bg.png') no-repeat;
+        background-position: center top;
+        -moz-min-width: 50px;
+        -ms-min-width: 50px;
+        -o-min-width: 50px;
+        -webkit-min-width: 50px;
+        min-width: 50px;
+        height: 77px;
+        padding-top: 15px;
+        margin: auto;
+        margin-top: 20px;
+    }
+
+footer p {
+        margin-top: 25px;
+        font-size: 24px;
+    }
+
+    footer .address {
+        margin: 25px;
+        text-transform: uppercase;
+        font-size: 30px;
+    }
+
+    footer .phone {
+        margin: 25px;
+        text-transform: uppercase;
+        font-size: 50px;
+        font-weight: 400;
+    }
+
+    footer .social a {
+        margin: 15px;
+        -ms-opacity: 0.9;
+        opacity: 0.9;
+    }
+
+        footer .social a:hover {
+            -ms-opacity: 1;
+            opacity: 1;
+        }
+
+.image-link {
+    margin: 15px;
+    -ms-opacity: 0.9;
+    opacity: 0.9;
+}
+
+    .image-link:hover {
+        -ms-opacity: 1;
+        opacity: 1;
+    }
+
+/* =============================== FOOD MENU ======================== */
+
+.food-menu {
+    margin: 10px;
+    text-transform: uppercase;
+}
+
+    .food-menu dt {
+        font-size: 20px;
+        font-weight: 400;
+    }
+
+        .food-menu dt .name {
+            float: left;
+            max-width: 500px;
+        }
+
+        .food-menu dt .price {
+            float: right;
+        }
+
+    .food-menu dd {
+        font-size: 15px;
+        font-weight: lighter;
+        margin-bottom: 10px;
+        font-style: italic;
+    }
+
+.article-link {
+    color: #7B6B4A;
+}
+
+    .article-link:hover {
+        color: #000;
+    }
+
+    .article-link .article-title {
+        margin: 0;
+        padding: 0;
+    }
+
+    .article-link .article-date {
+        margin-top: 10px;
+    }
+
+    .article-link hr {
+        margin: 1px;
+        padding: 0;
+    }
+
+
+.gallery .thumb {
+    margin: 5px;
+    -ms-opacity: 0.85;
+    opacity: 0.85;
+    -webkit-box-shadow: 5px 2px 10px -2px #808080;
+    -moz-box-shadow: 5px 2px 10px -2px #808080;
+    -moz-box-shadow: 5px 2px 10px -2px rgba(0,0,0,0.54);
+    box-shadow: 5px 2px 10px -2px #808080;
+    box-shadow: 5px 2px 10px -2px rgba(0,0,0,0.54);
+}
+
+    .gallery .thumb:hover {
+        -ms-opacity: 1;
+        opacity: 1;
+    }
+
+.contact-phone {
+    font-size: 40px;
+    font-weight: 500;
+}
+
+
+.contact-address {
+    font-size: 25px;
+    font-weight: 500;
+}
+
+.text-italic {
+    font-style: italic;
+}
+
+/* UMBRACO */
+
+.panel .video-wrapper {
+    width: 100%;
+    text-align: center;
+}
+
+.panel img {
+    max-width: 1100px;
+    margin: auto;
+}
+
+
+.language-bar {
+    display: inline-block;
+    background: #7B6B4A;
+    padding: 0;
+}
+
+.language-bar-wrapper {
+    min-height: 20px;
+}
+
+.top-language-bar {
+    position: relative;
+    top: 0;
+    right: 0;
+    margin: auto;
+    z-index: 100;
+}
+
+.language-bar li {
+    display: inline-block;
+}
+
+.language-bar a.flag {
+    display: inline-block;
+    min-width: 32px;
+    height: 20px;
+    text-align: center;
+    -ms-opacity: 0.7;
+    opacity: 0.7;
+}
+
+    .language-bar .flag:hover {
+        -ms-opacity: 1;
+        opacity: 1;
+        color: transparent;
+        text-decoration: none;
+    }
+
+
+.flag.pl {
+    background-image: url('/img/pl.png?height=20');
+    background-repeat: no-repeat;
+}
+
+.flag.cz {
+    background-image: url('/img/cz.png?height=20');
+    background-repeat: no-repeat;
+}
+
+.flag.en {
+    background-image: url('/img/en.png?height=20');
+    background-repeat: no-repeat;
+    min-width: 40px !important;
+}
+
+.flag.ru {
+    background-image: url('/img/ru.png?height=20');
+    background-repeat: no-repeat;
+}

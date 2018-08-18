@@ -1,0 +1,24 @@
+﻿@using umbraco.cms.presentation.create.controls
+@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = "Master.cshtml";
+    var children = CurrentPage.Children;
+}
+
+@foreach (var child in children)
+{
+    ViewBag.CurrentCategory = child;
+
+    if (child.ImageOption == "Left" && child.Image != null)
+    {
+        @Html.Partial("LeftMenuCategory")
+    }
+    else if (child.ImageOption == "Right" && child.Image != null)
+    {
+        @Html.Partial("RightMenuCategory")
+    }
+    else
+    {
+        @Html.Partial("NoImageMenuCategory")
+    }
+}

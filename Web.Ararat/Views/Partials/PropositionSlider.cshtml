@@ -1,0 +1,25 @@
+@inherits UmbracoTemplatePage
+@{
+    var home = CurrentPage.Site();
+
+    var slides = home.PropositionImages.Split(',');
+}
+
+<div id="carousel-food" class="carousel slide" data-ride="carousel">
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+        @{
+            int counter = 0;
+        }
+        @foreach (var img in Umbraco.Media(slides))
+        {
+            <div class="item @(counter == 0 ? "active" : "")">
+                <img src="@img.Url?width=450" alt="@img.Description"/>
+                <div class="carousel-caption">
+                    @img.Description
+                </div>
+            </div>
+            counter++;
+        }
+    </div>
+</div>

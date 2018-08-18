@@ -1,0 +1,9 @@
+@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = "Master.cshtml";
+}
+<section>
+    <div class="panel row">
+        @CurrentPage.GetGridHtml("content", "fanoe")
+    </div>
+</section>

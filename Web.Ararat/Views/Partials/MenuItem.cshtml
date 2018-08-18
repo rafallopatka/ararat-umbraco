@@ -1,0 +1,12 @@
+@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    var item = ViewBag.CurrentMenuItem;
+}
+
+<dt>
+    <span class="name">@item.Name</span>
+    <span class="price">@item.Price</span>
+</dt>
+<div class="clearfix"></div>
+<dd>@item.Description </dd>
+             

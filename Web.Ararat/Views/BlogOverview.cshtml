@@ -1,0 +1,31 @@
+@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = "Master.cshtml";
+
+    var list = CurrentPage.Children as IEnumerable<IPublishedContent>;
+
+    var ordered = list.OrderByDescending(x => x.CreateDate).Select(x => x as dynamic);
+}
+
+<section>
+    <div class="panel row">
+        <h1>@CurrentPage.Name</h1>
+
+        @foreach (var post in ordered)
+        {
+            <div class="col-sm-12">
+                <div class="content equal">
+                    <a href="@post.Url" class="article-link">
+                        <h2 class="article-title pull-left">
+                            @post.Name
+                        </h2>
+                        <span class="article-date pull-right">@post.CreateDate.ToShortDateString()</span>
+                        <div class="clearfix"></div>
+                        <hr />
+                    </a>
+                    <p>@Umbraco.Truncate(post.Introduction, 240, true)</p>
+                </div>
+            </div>
+        }
+    </div>
+</section>

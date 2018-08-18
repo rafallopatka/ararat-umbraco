@@ -1,0 +1,25 @@
+@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{ var home = CurrentPage.Site(); }
+
+<h1>@home.FooterTitle</h1>
+<p>
+    @home.FooterText
+</p>
+<address class="address">
+    @home.SiteTitle
+    <br>
+    @home.Address
+</address>
+<address class="phone">
+    @home.Phone1
+    <br />
+    @home.Phone2
+</address>
+<address class="social">
+    <a href="@home.FacebookSite">
+        <img src="/img/fb.png" />
+    </a>
+    <a href="@home.GooglePlusSite">
+        <img src="/img/googleplus.png" />
+    </a>
+</address>
